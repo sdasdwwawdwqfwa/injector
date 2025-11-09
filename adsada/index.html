@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Injector Plugin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .icon {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .info-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-section h2 {
+            color: #5865F2;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .info-section p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .plugin-links {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .link-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .link-card:hover {
+            border-color: #5865F2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(88, 101, 242, 0.2);
+        }
+
+        .link-card h3 {
+            color: #5865F2;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .link-card p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .link-card code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+
+        .install-section {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .install-section h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .install-url {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            word-break: break-all;
+            margin: 10px 0;
+            border: 1px solid #c8e6c9;
+            color: #1b5e20;
+        }
+
+        .copy-btn {
+            background: #5865F2;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .copy-btn:hover {
+            background: #4752c4;
+            transform: scale(1.02);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.98);
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .warning p {
+            color: #856404;
+            margin: 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">💬</div>
+            <h1>Message Injector</h1>
+            <p>Inject fake messages in DMs from anyone</p>
+        </div>
+
+        <div class="info-section">
+            <h2>📦 Plugin Information</h2>
+            <p><strong>Name:</strong> Message Injector</p>
+            <p><strong>Version:</strong> 1.0.0</p>
+            <p><strong>Description:</strong> Inject fake messages in DMs from anyone</p>
+            <p><strong>Platform:</strong> Vendetta/Bunny/Kettu</p>
+        </div>
+
+        <div class="info-section">
+            <h2>✨ Features</h2>
+            <ul class="features">
+                <li>Inject fake messages into any DM channel</li>
+                <li>Messages persist across app restarts</li>
+                <li>Prevent fake messages from being deleted</li>
+                <li>Support for embeds and custom avatars</li>
+                <li>Auto-inject messages on startup</li>
+                <li>Console API for advanced usage</li>
+                <li>Self-testing injection methods</li>
+            </ul>
+        </div>
+
+        <div class="install-section">
+            <h3>🚀 Installation</h3>
+            <p>Copy the plugin URL below and add it to your Vendetta/Bunny/Kettu client:</p>
+            <div class="install-url" id="pluginUrl">
+                https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/
+            </div>
+            <button class="copy-btn" onclick="copyUrl()">📋 Copy Plugin URL</button>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                Replace <code>YOUR-USERNAME</code> and <code>YOUR-REPO-NAME</code> with your GitHub username and repository name.
+            </p>
+        </div>
+
+        <div class="plugin-links">
+            <a href="manifset.json" class="link-card">
+                <h3>📄 manifest.json</h3>
+                <p>Plugin manifest file containing metadata and entry point</p>
+            </a>
+            
+            <a href="src/index.ts" class="link-card">
+                <h3>📝 src/index.ts</h3>
+                <p>Main plugin source code with message injection logic</p>
+            </a>
+            
+            <a href="src/settings.tsx" class="link-card">
+                <h3>⚙️ src/settings.tsx</h3>
+                <p>Settings UI component for configuring the plugin</p>
+            </a>
+        </div>
+
+        <div class="warning">
+            <p><strong>⚠️ Warning:</strong> This plugin is for educational purposes only. Use responsibly and be aware that injecting fake messages may violate Discord's Terms of Service.</p>
+        </div>
+
+        <div class="footer">
+            <p>Message Injector Plugin • Made for Vendetta/Bunny/Kettu</p>
+        </div>
+    </div>
+
+    <script>
+        function copyUrl() {
+            const urlElement = document.getElementById('pluginUrl');
+            const url = urlElement.textContent.trim();
+            
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = '✅ Copied!';
+                btn.style.background = '#4caf50';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#5865F2';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy URL. Please copy it manually.');
+            });
+        }
+
+        // Update the plugin URL with current location if hosted
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.location.hostname !== '') {
+                const currentUrl = window.location.origin + window.location.pathname.replace('index.html', '');
+                document.getElementById('pluginUrl').textContent = currentUrl;
+            }
+        });
+    </script>
+</body>
+</html>
+
